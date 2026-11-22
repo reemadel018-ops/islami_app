@@ -5,7 +5,7 @@ import 'package:islami_app/core/utils/app_size_utils.dart';
 import 'package:islami_app/core/utils/app_styles.dart';
 import 'package:islami_app/model/quran_resources.dart';
 import 'package:islami_app/ui/screens/common/main_loading_widget.dart';
-import 'package:islami_app/ui/screens/sura_details/sura_content.dart';
+import 'package:islami_app/ui/screens/common/content_item.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   const SuraDetailsScreen({super.key});
@@ -60,7 +60,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           MainLoadingWidget()
           :
           SingleChildScrollView(
-            child: SuraContent(content: verses,
+            child: ContentItem(content: verses,
             ),
           )),
 

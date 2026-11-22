@@ -37,6 +37,7 @@ dependencies:
   flutter_native_splash: ^2.4.8
   introduction_screen: ^5.0.1
   google_fonts: ^9.0.0
+  carousel_slider: ^5.1.2
 
 dev_dependencies:
   flutter_test:
