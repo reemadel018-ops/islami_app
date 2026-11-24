@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:islami_app/core/utils/app_color.dart';
 import 'package:islami_app/core/utils/app_size_utils.dart';
 import 'package:islami_app/ui/screens/tabs/hadeth/hadeth_tab.dart';
@@ -8,7 +8,7 @@ import 'package:islami_app/ui/screens/tabs/sebha/sebha_tab.dart';
 import 'package:islami_app/ui/screens/tabs/time/time_tab.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

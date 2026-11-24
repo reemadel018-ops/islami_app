@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:islami_app/core/utils/app_color.dart';
 import 'package:islami_app/core/utils/app_styles.dart';
 

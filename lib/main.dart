@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:islami_app/core/utils/app_routes.dart';
 import 'package:islami_app/core/utils/app_theme.dart';
 import 'package:islami_app/ui/screens/hadeth_details_screen/hadeth_details_screen.dart';
