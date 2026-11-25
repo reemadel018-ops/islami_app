@@ -1,3 +1,4 @@
+import 'package:islami_app/providers/most_recent_provider.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/core/utils/app_color.dart';
@@ -6,6 +7,7 @@ import 'package:islami_app/core/utils/app_styles.dart';
 import 'package:islami_app/model/quran_resources.dart';
 import 'package:islami_app/ui/screens/common/main_loading_widget.dart';
 import 'package:islami_app/ui/screens/common/content_item.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   const SuraDetailsScreen({super.key});
@@ -15,15 +17,16 @@ class SuraDetailsScreen extends StatefulWidget {
 }
 
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
-  String verses='';
+  String verses = '';
+  late MostRecentProvider mostRecentProvider;
   @override
   Widget build(BuildContext context) {
     var index = ModalRoute.of(context)?.settings.arguments as int? ?? 0;
-    
+    mostRecentProvider = Provider.of(context);
+
     loadSuraFile(index);
     var width = context.width;
     var height = context.height;
-
 
     return Scaffold(
       backgroundColor: AppColors.black,
@@ -56,18 +59,23 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               ],
             ),
           ),
-          Expanded(child:verses.isEmpty?
-          MainLoadingWidget()
-          :
-          SingleChildScrollView(
-            child: ContentItem(content: verses,
-            ),
-          )),
+          Expanded(
+            child: verses.isEmpty
+                ? MainLoadingWidget()
+                : SingleChildScrollView(child: ContentItem(content: verses)),
+          ),
 
           Image.asset('assets/images/img_bottom_decoration.png'),
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    mostRecentProvider.getLastSuraIndex();
   }
 
   Future<void> loadSuraFile(int index) async {
@@ -76,11 +84,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     );
     List<String> lines = fileContent.split('\n');
     for (int i = 0; i < lines.length; i++) {
-      lines[i] += '[ ${i+1} ]';
+      lines[i] += '[ ${i + 1} ]';
     }
-    verses= lines.join(' ');
-    setState(() {
-      
-    });
+    verses = lines.join(' ');
+    setState(() {});
   }
 }

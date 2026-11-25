@@ -1,3 +1,4 @@
+import 'package:islami_app/providers/most_recent_provider.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:islami_app/core/utils/app_routes.dart';
 import 'package:islami_app/core/utils/app_theme.dart';
@@ -5,9 +6,12 @@ import 'package:islami_app/ui/screens/hadeth_details_screen/hadeth_details_scree
 import 'package:islami_app/ui/screens/home_screen.dart';
 import 'package:islami_app/ui/screens/intro_screen.dart';
 import 'package:islami_app/ui/screens/sura_details/sura_details_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => MostRecentProvider(),
+    child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
