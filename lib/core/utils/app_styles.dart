@@ -3,6 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_app/core/utils/app_color.dart';
 
 class AppStyles {
+  static TextStyle bold30White = GoogleFonts.elMessiri(
+  fontSize: 30,
+  fontWeight: FontWeight.bold,
+  color: AppColors.white,
+);
   static TextStyle bold16White = GoogleFonts.elMessiri(
     fontSize: 16,
     fontWeight: FontWeight.bold,

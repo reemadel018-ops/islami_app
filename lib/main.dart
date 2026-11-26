@@ -1,4 +1,5 @@
 import 'package:islami_app/providers/most_recent_provider.dart';
+import 'package:islami_app/providers/sebha_provider.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:islami_app/core/utils/app_routes.dart';
 import 'package:islami_app/core/utils/app_theme.dart';
@@ -9,9 +10,15 @@ import 'package:islami_app/ui/screens/sura_details/sura_details_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => MostRecentProvider(),
-    child: MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => MostRecentProvider()),
+        ChangeNotifierProvider(create: (context) => SebhaProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
